@@ -8,7 +8,7 @@ const nav = [
   { href: '/informacoes', label: 'Informações' },
   { href: '/feedbacks', label: 'Feedbacks' },
   { href: '/imagens', label: 'Imagens' },
-  { href: '/contato', label: 'Contato' },
+  { href: '/contato', label: 'Contato', primary: true },
 ];
 
 const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
@@ -20,19 +20,27 @@ const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.s
 
     <nav class="desktop-nav" aria-label="Navegação principal">
       {nav.map((item) => (
-        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+        <a
+          href={item.href}
+          class:list={{ 'nav-cta': item.primary }}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
           {item.label}
         </a>
       ))}
     </nav>
 
     <details class="mobile-nav">
-      <summary aria-label="Abrir menu">
+      <summary aria-label="Menu principal">
         <span></span><span></span>
       </summary>
       <nav aria-label="Navegação para celular">
         {nav.map((item) => (
-          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+          <a
+            href={item.href}
+            class:list={{ 'nav-cta': item.primary }}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
             {item.label}
           </a>
         ))}
@@ -48,6 +56,7 @@ const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.s
   top: 0;
   border-bottom: 1px solid rgba(24, 52, 76, 0.08);
   background: rgba(251, 250, 248, 0.94);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
 
@@ -90,6 +99,23 @@ const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.s
 .desktop-nav a:hover::after,
 .desktop-nav a[aria-current="page"]::after {
   transform: scaleX(1);
+}
+
+.desktop-nav .nav-cta {
+  border: 1px solid var(--wine);
+  border-radius: 999px;
+  background: var(--wine);
+  color: var(--white);
+  padding: 0.68rem 1rem;
+}
+
+.desktop-nav .nav-cta::after {
+  display: none;
+}
+
+.desktop-nav .nav-cta:hover {
+  border-color: var(--wine-dark);
+  background: var(--wine-dark);
 }
 
 .mobile-nav {
@@ -161,6 +187,11 @@ const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.s
   .mobile-nav a[aria-current="page"] {
     color: var(--wine);
     background: var(--blush);
+  }
+
+  .mobile-nav .nav-cta {
+    color: var(--white);
+    background: var(--wine);
   }
 }
 </style>

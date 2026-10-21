@@ -11,7 +11,19 @@ const { compact = false } = Astro.props;
 ---
 
 <div class:list={['feedback-wrap', { 'feedback-wrap--compact': compact }]}>
-  <FeedbackCarousel feedbacks={siteConfig.feedbacks} client:visible />
+  {siteConfig.feedbacks.length === 0 && (
+    <div class="feedback-empty" role="status">
+      <span class="feedback-empty__mark" aria-hidden="true">
+        “
+      </span>
+      <div>
+        <p class="feedback-empty__label">Espaço preparado</p>
+        <h2>Os feedbacks serão adicionados aqui.</h2>
+        <p>A seção já está pronta para receber relatos autorizados, sem publicar nomes ou experiências fictícias.</p>
+      </div>
+    </div>
+  )}
+  {siteConfig.feedbacks.length > 0 && <FeedbackCarousel feedbacks={siteConfig.feedbacks} client:visible />}
 </div>
 
 <style>

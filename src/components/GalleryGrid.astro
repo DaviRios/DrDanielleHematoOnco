@@ -13,7 +13,7 @@ const images = typeof limit === 'number' ? siteConfig.gallery.slice(0, limit) : 
   {images.map((image, index) => (
     <figure class:list={['gallery-item', `gallery-item--${image.shape}`]}>
       {image.src ? (
-        <img src={image.src} alt={image.alt} loading={index > 1 ? 'lazy' : 'eager'} />
+        <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
       ) : (
         <div class="gallery-placeholder" role="img" aria-label={image.alt}>
           <svg viewBox="0 0 84 84" aria-hidden="true">
@@ -75,7 +75,7 @@ const images = typeof limit === 'number' ? siteConfig.gallery.slice(0, limit) : 
   place-items: center;
   gap: 1rem;
   background: var(--warm);
-  color: rgba(24, 52, 76, 0.5);
+  color: var(--ink-soft);
 }
 
 .gallery-item:nth-child(2n) .gallery-placeholder {

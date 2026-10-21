@@ -1,16 +1,23 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import PageLoader from '../components/PageLoader.astro';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
+  image?: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = '/social/danielle-godoy-og.jpg', noindex = false } = Astro.props;
 const pageTitle =
   title === 'Home' ? 'Danielle Godoy | Oncologia e Hematologia Veterinária' : `${title} | Danielle Godoy`;
+const siteUrl = Astro.site ?? Astro.url;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
+const socialImageUrl = new URL(image, siteUrl);
+const socialImageAlt = 'Dra. Danielle Godoy — Oncologia e Hematologia Veterinária';
 ---
 
 <!doctype html>
@@ -20,14 +27,40 @@ const pageTitle =
     <meta name="viewport" content="width=device-width">
     <meta name="description" content={description}>
     <meta name="theme-color" content="#fbfaf8">
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'}>
+    <link rel="canonical" href={canonicalUrl}>
+
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Danielle Godoy">
+    <meta property="og:url" content={canonicalUrl}>
     <meta property="og:title" content={pageTitle}>
     <meta property="og:description" content={description}>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:image" content={socialImageUrl}>
+    <meta property="og:image:secure_url" content={socialImageUrl}>
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content={socialImageAlt}>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={pageTitle}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={socialImageUrl}>
+    <meta name="twitter:image:alt" content={socialImageAlt}>
+
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script is:inline>
+    document.documentElement.dataset.loadStartedAt = String(performance.now());
+    document.documentElement.classList.add('page-is-loading');
+    </script>
     <title>{pageTitle}</title>
   </head>
-  <body class="antialiased">
+  <body class="antialiased" aria-busy="true">
+    <PageLoader />
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <Header />
     <main id="conteudo">

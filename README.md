@@ -40,6 +40,7 @@ Os comandos abaixo ficaram preparados, mas não foram executados durante a prime
 ```bash
 pnpm install
 pnpm dev
+pnpm generate:assets
 pnpm test
 pnpm lint
 pnpm format:check
@@ -54,6 +55,25 @@ com Vitest através de `pnpm test`. O comando `pnpm quality`, usado no CI, verif
 uma única etapa o lint, a formatação e a organização dos imports.
 
 O `pnpm-lock.yaml` deve ser versionado para garantir instalações reproduzíveis no desenvolvimento e no CI.
+
+## Imagens e compartilhamento social
+
+A foto principal fica em `src/assets/dra-danielle-godoy.png` e é processada pelo Astro em AVIF e WebP responsivos durante o build.
+
+O comando `pnpm generate:assets` gera, de forma reproduzível:
+
+- a imagem Open Graph de 1200 × 630 px;
+- o favicon PNG de 32 × 32 px;
+- o ícone Apple Touch de 180 × 180 px.
+
+O build executa essa geração automaticamente. Para que URLs canônicas e imagens sociais sejam absolutas em produção,
+configure `SITE_URL` na Vercel com o domínio definitivo, conforme o exemplo em `.env.example`.
+
+## Estado de carregamento
+
+O componente `src/components/PageLoader.astro` exibe um loader acessível durante o carregamento inicial e entre
+navegações completas. Ele permanece visível por pelo menos 550 ms para evitar um flash imperceptível e respeita
+`prefers-reduced-motion`.
 
 ## CI/CD e Vercel
 

@@ -2,40 +2,132 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Página não encontrada" description="A página procurada não foi encontrada.">
+<BaseLayout title="Página não encontrada" description="A página procurada não foi encontrada." noindex>
   <section class="not-found">
+    <div class="not-found__number" aria-hidden="true">404</div>
     <div class="site-shell not-found__inner">
-      <p class="eyebrow">Erro 404</p>
-      <h1 class="display-title">Esta página não foi encontrada.</h1>
-      <p class="body-large">O endereço pode ter mudado ou não existir. Você pode voltar para a página inicial.</p>
-      <a class="button" href="/">Voltar para home</a>
+      <div class="not-found__copy">
+        <p class="eyebrow">Página não encontrada</p>
+        <h1 class="display-title">Este caminho não existe, mas podemos ajudar você a continuar.</h1>
+        <p class="body-large">
+          O endereço pode ter sido digitado incorretamente ou a página pode ter mudado. Escolha um dos caminhos abaixo
+          para encontrar o que precisa.
+        </p>
+        <div class="not-found__actions">
+          <a class="button" href="/">Ir para a página inicial <span aria-hidden="true">→</span></a>
+          <a class="button button--ghost" href="/contato">Acessar contato</a>
+        </div>
+      </div>
+
+      <nav class="not-found__links" aria-label="Páginas úteis">
+        <a href="/informacoes">
+          <span>01</span>
+          <strong>Informações</strong>
+          <small>Veja como se preparar para uma consulta.</small>
+        </a>
+        <a href="/locais">
+          <span>02</span>
+          <strong>Locais de atendimento</strong>
+          <small>Consulte as unidades e orientações disponíveis.</small>
+        </a>
+        <a href="/imagens">
+          <span>03</span>
+          <strong>Imagens</strong>
+          <small>Conheça a galeria institucional.</small>
+        </a>
+      </nav>
     </div>
   </section>
 </BaseLayout>
 
 <style>
 .not-found {
-  display: grid;
-  min-height: 70vh;
-  place-items: center;
+  position: relative;
+  min-height: 76vh;
+  overflow: hidden;
   background: var(--warm);
 }
 
 .not-found__inner {
-  padding-block: 5rem;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: end;
+  gap: clamp(3rem, 9vw, 8rem);
+  padding-block: clamp(5rem, 11vw, 9rem);
 }
 
-.not-found h1,
-.not-found p {
-  margin-inline: auto;
+.not-found__number {
+  position: absolute;
+  top: -6rem;
+  right: -1rem;
+  color: rgba(152, 31, 36, 0.06);
+  font-family: var(--display);
+  font-size: clamp(18rem, 43vw, 39rem);
+  line-height: 0.8;
+  user-select: none;
 }
 
-.not-found p {
-  max-width: 48ch;
+.not-found__copy h1 {
+  max-width: 12ch;
 }
 
-.not-found .button {
-  margin-top: 1rem;
+.not-found__copy .body-large {
+  max-width: 54ch;
+  margin: 1.6rem 0 0;
+}
+
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.not-found__links {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.not-found__links a {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.2rem 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1.25rem 0;
+  text-decoration: none;
+}
+
+.not-found__links span {
+  grid-row: span 2;
+  color: var(--wine);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.not-found__links strong {
+  font-family: var(--display);
+  font-size: 1.25rem;
+}
+
+.not-found__links small {
+  color: var(--ink-soft);
+}
+
+.not-found__links a:hover strong {
+  color: var(--wine);
+}
+
+@media (max-width: 800px) {
+  .not-found__inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .not-found__number {
+    top: 2rem;
+    right: -3rem;
+  }
 }
 </style>

@@ -11,6 +11,11 @@ const { eyebrow, title, description } = Astro.props;
 <section class="page-intro">
   <div class="page-intro__orb" aria-hidden="true"></div>
   <div class="site-shell page-intro__inner">
+    <nav class="breadcrumb" aria-label="Navegação estrutural">
+      <a href="/">Início</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{title}</span>
+    </nav>
     <p class="eyebrow">{eyebrow}</p>
     <h1 class="display-title">{title}</h1>
     <p class="body-large">{description}</p>
@@ -29,6 +34,26 @@ const { eyebrow, title, description } = Astro.props;
   position: relative;
   z-index: 1;
   padding-block: clamp(4.5rem, 10vw, 8.5rem);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.breadcrumb a {
+  color: var(--wine);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 
 .page-intro h1 {

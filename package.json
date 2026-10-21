@@ -6,6 +6,8 @@
   "packageManager": "pnpm@12.1.0",
   "scripts": {
     "dev": "astro dev",
+    "generate:assets": "node scripts/generate-assets.mjs",
+    "prebuild": "pnpm generate:assets",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
@@ -37,6 +39,7 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.0.0",
     "jsdom": "^27.0.0",
+    "sharp": "0.34.5",
     "typescript": "^5.7.0",
     "vercel": "^48.0.0",
     "vitest": "^3.0.0"
