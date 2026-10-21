@@ -1,0 +1,135 @@
+---
+import { siteConfig } from '../data/site';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const images = typeof limit === 'number' ? siteConfig.gallery.slice(0, limit) : siteConfig.gallery;
+---
+
+<div class="gallery-grid">
+  {images.map((image, index) => (
+    <figure class:list={['gallery-item', `gallery-item--${image.shape}`]}>
+      {image.src ? (
+        <img src={image.src} alt={image.alt} loading={index > 1 ? 'lazy' : 'eager'} />
+      ) : (
+        <div class="gallery-placeholder" role="img" aria-label={image.alt}>
+          <svg viewBox="0 0 84 84" aria-hidden="true">
+            <rect x="14" y="20" width="56" height="44" rx="8" />
+            <circle cx="34" cy="37" r="6" />
+            <path d="m20 58 15-14 10 9 8-7 11 12" />
+          </svg>
+          <span>Imagem {String(index + 1).padStart(2, '0')}</span>
+        </div>
+      )}
+      {image.caption && <figcaption>{image.caption}</figcaption>}
+    </figure>
+  ))}
+</div>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    min-height: 19rem;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(24, 52, 76, 0.09);
+    border-radius: 1.5rem;
+    background: var(--warm);
+  }
+
+  .gallery-item--portrait {
+    grid-column: span 4;
+    grid-row: span 2;
+    min-height: 30rem;
+  }
+
+  .gallery-item--landscape {
+    grid-column: span 8;
+  }
+
+  .gallery-item--square {
+    grid-column: span 4;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: 1rem;
+    background: var(--warm);
+    color: rgba(24, 52, 76, 0.5);
+  }
+
+  .gallery-item:nth-child(2n) .gallery-placeholder {
+    background: var(--blush);
+  }
+
+  .gallery-item:nth-child(3n) .gallery-placeholder {
+    background: var(--sage);
+  }
+
+  .gallery-placeholder::before {
+    position: absolute;
+    width: 70%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(24, 52, 76, 0.11);
+    border-radius: 50%;
+    content: '';
+  }
+
+  .gallery-placeholder svg {
+    z-index: 1;
+    width: 4.2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
+  }
+
+  .gallery-placeholder span {
+    z-index: 1;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  figcaption {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 0.7rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 760px) {
+    .gallery-item--portrait,
+    .gallery-item--landscape,
+    .gallery-item--square {
+      grid-column: span 12;
+      min-height: 21rem;
+    }
+  }
+</style>

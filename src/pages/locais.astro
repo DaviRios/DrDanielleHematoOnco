@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { siteConfig } from '../data/site';
+---
+
+<BaseLayout
+  title="Locais de atendimento"
+  description="Consulte os locais de atendimento de Danielle Godoy em Oncologia e Hematologia Veterinária."
+>
+  <PageIntro
+    eyebrow="Onde encontrar"
+    title="Locais de atendimento"
+    description="Os endereços, horários e orientações de chegada serão organizados aqui para facilitar o seu planejamento."
+  />
+
+  <section class="locations page-section">
+    <div class="site-shell">
+      {siteConfig.locations.length > 0 ? (
+        <div class="locations__grid">
+          {siteConfig.locations.map((location, index) => (
+            <article class="location-card">
+              <p class="location-card__number">{String(index + 1).padStart(2, '0')}</p>
+              <h2>{location.name}</h2>
+              {location.address && <p>{location.address}</p>}
+              {location.schedule && <p><strong>Horários:</strong> {location.schedule}</p>}
+              {location.details && <p>{location.details}</p>}
+              {location.mapUrl && <a class="text-link" href={location.mapUrl} target="_blank" rel="noreferrer">Abrir no mapa</a>}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="locations__empty soft-panel">
+          <div class="locations__pin" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M32 57S13 42 13 25a19 19 0 1 1 38 0c0 17-19 32-19 32Z"/><circle cx="32" cy="25" r="7"/></svg>
+          </div>
+          <div>
+            <p class="eyebrow">Em atualização</p>
+            <h2>Os locais serão publicados em breve.</h2>
+            <p>
+              Esta página já está preparada para receber nome da clínica, endereço,
+              horários, orientações e link para o mapa.
+            </p>
+            <a class="button button--ghost" href="/contato">Ir para contato</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="arrival">
+    <div class="site-shell arrival__grid">
+      <div>
+        <p class="eyebrow">Antes de sair</p>
+        <h2 class="section-title">Confirme as informações do seu atendimento.</h2>
+      </div>
+      <ul>
+        <li><span>01</span> Confirme o endereço indicado no agendamento.</li>
+        <li><span>02</span> Verifique se há alguma orientação específica para o paciente.</li>
+        <li><span>03</span> Leve exames, receitas e documentos disponíveis.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .locations__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .location-card {
+    min-height: 25rem;
+    border: 1px solid rgba(24, 52, 76, 0.1);
+    border-radius: 1.5rem;
+    background: var(--white);
+    padding: 1.7rem;
+  }
+
+  .location-card__number {
+    color: var(--wine);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .location-card h2,
+  .locations__empty h2 {
+    margin: 2rem 0 1rem;
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .locations__empty {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    align-items: center;
+    gap: clamp(2rem, 7vw, 6rem);
+    padding: clamp(2rem, 7vw, 6rem);
+  }
+
+  .locations__pin {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--blush);
+  }
+
+  .locations__pin svg {
+    width: 42%;
+    fill: none;
+    stroke: var(--wine);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  .locations__empty h2 {
+    max-width: 15ch;
+    margin-top: 0;
+  }
+
+  .locations__empty > div:last-child > p:not(.eyebrow) {
+    max-width: 50ch;
+    color: var(--ink-soft);
+  }
+
+  .locations__empty .button {
+    margin-top: 1rem;
+  }
+
+  .arrival {
+    background: var(--sage);
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .arrival__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 8vw, 7rem);
+  }
+
+  .arrival ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .arrival li {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+    border-top: 1px solid rgba(24, 52, 76, 0.16);
+    padding: 1.25rem 0;
+  }
+
+  .arrival li span {
+    color: var(--wine);
+    font-size: 0.74rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 760px) {
+    .locations__grid,
+    .locations__empty,
+    .arrival__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .locations__pin {
+      width: min(15rem, 72vw);
+      margin-inline: auto;
+    }
+  }
+</style>

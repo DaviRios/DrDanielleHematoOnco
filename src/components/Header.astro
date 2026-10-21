@@ -1,0 +1,162 @@
+---
+import Logo from './Logo.astro';
+
+const pathname = Astro.url.pathname;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/locais', label: 'Locais' },
+  { href: '/informacoes', label: 'Informações' },
+  { href: '/feedbacks', label: 'Feedbacks' },
+  { href: '/imagens', label: 'Imagens' },
+  { href: '/contato', label: 'Contato' },
+];
+
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="site-shell header-inner">
+    <Logo compact />
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+
+    <details class="mobile-nav">
+      <summary aria-label="Abrir menu">
+        <span></span><span></span>
+      </summary>
+      <nav aria-label="Navegação para celular">
+        {nav.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    border-bottom: 1px solid rgba(24, 52, 76, 0.08);
+    background: rgba(251, 250, 248, 0.94);
+    backdrop-filter: blur(18px);
+  }
+
+  .header-inner {
+    display: flex;
+    min-height: 5.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.8rem);
+  }
+
+  .desktop-nav a,
+  .mobile-nav a {
+    position: relative;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.055em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .desktop-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.5rem;
+    left: 0;
+    height: 2px;
+    transform: scaleX(0);
+    background: var(--wine);
+    content: '';
+    transition: transform 160ms ease;
+  }
+
+  .desktop-nav a:hover::after,
+  .desktop-nav a[aria-current='page']::after {
+    transform: scaleX(1);
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  @media (max-width: 940px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
+
+    .mobile-nav summary {
+      display: grid;
+      width: 2.8rem;
+      height: 2.8rem;
+      cursor: pointer;
+      list-style: none;
+      place-content: center;
+      gap: 0.38rem;
+      border: 1px solid rgba(24, 52, 76, 0.18);
+      border-radius: 50%;
+    }
+
+    .mobile-nav summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-nav summary span {
+      width: 1.15rem;
+      height: 1px;
+      background: currentColor;
+      transition: transform 160ms ease;
+    }
+
+    .mobile-nav[open] summary span:first-child {
+      transform: translateY(0.21rem) rotate(45deg);
+    }
+
+    .mobile-nav[open] summary span:last-child {
+      transform: translateY(-0.18rem) rotate(-45deg);
+    }
+
+    .mobile-nav nav {
+      position: absolute;
+      top: calc(100% + 0.55rem);
+      right: 0.65rem;
+      left: 0.65rem;
+      display: grid;
+      overflow: hidden;
+      border: 1px solid rgba(24, 52, 76, 0.09);
+      border-radius: 1.25rem;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-nav a {
+      border-bottom: 1px solid rgba(24, 52, 76, 0.08);
+      padding: 1rem 1.25rem;
+    }
+
+    .mobile-nav a:last-child {
+      border-bottom: 0;
+    }
+
+    .mobile-nav a[aria-current='page'] {
+      color: var(--wine);
+      background: var(--blush);
+    }
+  }
+</style>

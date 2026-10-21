@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+---
+
+<BaseLayout
+  title="Imagens"
+  description="Galeria institucional de Danielle Godoy, Oncologia e Hematologia Veterinária."
+>
+  <PageIntro
+    eyebrow="Galeria"
+    title="Imagens"
+    description="Um espaço preparado para reunir registros do trabalho, dos ambientes e dos momentos de cuidado."
+  />
+
+  <section class="gallery-page page-section">
+    <div class="site-shell">
+      <div class="gallery-page__heading">
+        <div>
+          <p class="eyebrow">Galeria institucional</p>
+          <h2 class="section-title">Fotos serão adicionadas em breve.</h2>
+        </div>
+        <p>
+          A composição foi pensada para receber imagens horizontais, verticais e quadradas
+          sem perder o ritmo visual em celulares ou telas maiores.
+        </p>
+      </div>
+      <GalleryGrid />
+    </div>
+  </section>
+
+  <section class="image-note">
+    <div class="site-shell image-note__inner">
+      <span aria-hidden="true">✦</span>
+      <p>Imagens de pacientes devem ser publicadas somente com autorização de seus responsáveis.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .gallery-page__heading {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .gallery-page__heading > p {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .image-note {
+    background: var(--sage);
+    padding-block: 2.5rem;
+  }
+
+  .image-note__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .image-note span {
+    color: var(--wine);
+  }
+
+  .image-note p {
+    margin: 0;
+    font-weight: 650;
+  }
+
+  @media (max-width: 760px) {
+    .gallery-page__heading {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
+const { eyebrow, title, description } = Astro.props;
+---
+
+<section class="page-intro">
+  <div class="page-intro__orb" aria-hidden="true"></div>
+  <div class="site-shell page-intro__inner">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 class="display-title">{title}</h1>
+    <p class="body-large">{description}</p>
+  </div>
+</section>
+
+<style>
+  .page-intro {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(24, 52, 76, 0.08);
+    background: var(--warm);
+  }
+
+  .page-intro__inner {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(4.5rem, 10vw, 8.5rem);
+  }
+
+  .page-intro h1 {
+    max-width: 15ch;
+  }
+
+  .page-intro .body-large {
+    max-width: 62ch;
+    margin: 1.5rem 0 0;
+  }
+
+  .page-intro__orb {
+    position: absolute;
+    top: -13rem;
+    right: -5rem;
+    width: 35rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(24, 52, 76, 0.12);
+    border-radius: 50%;
+  }
+
+  .page-intro__orb::before,
+  .page-intro__orb::after {
+    position: absolute;
+    border-radius: 50%;
+    content: '';
+  }
+
+  .page-intro__orb::before {
+    right: 8rem;
+    bottom: 1.3rem;
+    width: 5.2rem;
+    aspect-ratio: 1;
+    background: var(--blush-strong);
+  }
+
+  .page-intro__orb::after {
+    right: 5.5rem;
+    bottom: 8rem;
+    width: 0.7rem;
+    aspect-ratio: 1;
+    background: var(--wine);
+  }
+</style>

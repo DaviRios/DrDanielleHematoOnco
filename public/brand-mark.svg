@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 150" role="img" aria-labelledby="title">
+  <title id="title">Símbolo Danielle Godoy</title>
+  <g fill="none" stroke="#9b201c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.4">
+    <path d="M22 3c-5.1 13.9-2.3 27.8 6.5 40.1C36.8 54.7 48 66.2 56 79.4c8.1 13.3 15.3 27.4 13.7 41.4-1.1 10.6-6.2 19.6-13.6 25.2"/>
+    <path d="M58 3c5.1 13.9 2.3 27.8-6.5 40.1C43.2 54.7 32 66.2 24 79.4c-8.1 13.3-15.3 27.4-13.7 41.4 1.1 10.6 6.2 19.6 13.6 25.2"/>
+    <path d="M28.5 21.5h23M25 34.8h30M34 48.2h12"/>
+  </g>
+  <path fill="#9b201c" d="M40 87.5c-3.8 10.5-17.4 22-17.4 35.3 0 10.4 7.8 18.2 17.4 18.2s17.4-7.8 17.4-18.2C57.4 109.5 43.8 98 40 87.5Z"/>
+  <path fill="none" stroke="#fbfaf8" stroke-linecap="round" stroke-width="2.1" d="M50.1 122.2c-.8 6.1-4.1 10.1-9.1 12.1"/>
+</svg>

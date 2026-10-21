@@ -1,0 +1,26 @@
+---
+import FeedbackCarousel from './FeedbackCarousel';
+import './FeedbackCarousel.css';
+import { siteConfig } from '../data/site';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<div class:list={['feedback-wrap', { 'feedback-wrap--compact': compact }]}>
+  <FeedbackCarousel feedbacks={siteConfig.feedbacks} client:visible />
+</div>
+
+<style>
+  .feedback-wrap {
+    width: 100%;
+  }
+
+  .feedback-wrap--compact {
+    max-width: 930px;
+    margin-inline: auto;
+  }
+</style>
