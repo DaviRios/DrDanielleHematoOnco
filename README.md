@@ -42,9 +42,16 @@ pnpm install
 pnpm dev
 pnpm test
 pnpm lint
+pnpm format:check
+pnpm quality
 pnpm check
 pnpm build
 ```
+
+O Biome é responsável pelo lint e pela formatação. Para aplicar correções automáticas,
+use `pnpm lint:fix` e `pnpm format`. Os testes unitários e de componentes são executados
+com Vitest através de `pnpm test`. O comando `pnpm quality`, usado no CI, verifica em
+uma única etapa o lint, a formatação e a organização dos imports.
 
 O `pnpm-lock.yaml` deve ser versionado para garantir instalações reproduzíveis no desenvolvimento e no CI.
 

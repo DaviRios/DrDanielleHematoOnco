@@ -68,8 +68,20 @@ export const siteConfig: SiteConfig = siteConfigSchema.parse({
     { id: 'foto-1', src: '', alt: 'Espaço reservado para uma foto de atendimento', caption: '', shape: 'portrait' },
     { id: 'foto-2', src: '', alt: 'Espaço reservado para uma foto da profissional', caption: '', shape: 'landscape' },
     { id: 'foto-3', src: '', alt: 'Espaço reservado para uma foto do ambiente', caption: '', shape: 'square' },
-    { id: 'foto-4', src: '', alt: 'Espaço reservado para uma foto de cuidado veterinário', caption: '', shape: 'landscape' },
-    { id: 'foto-5', src: '', alt: 'Espaço reservado para uma foto de paciente veterinário', caption: '', shape: 'portrait' },
+    {
+      id: 'foto-4',
+      src: '',
+      alt: 'Espaço reservado para uma foto de cuidado veterinário',
+      caption: '',
+      shape: 'landscape',
+    },
+    {
+      id: 'foto-5',
+      src: '',
+      alt: 'Espaço reservado para uma foto de paciente veterinário',
+      caption: '',
+      shape: 'portrait',
+    },
     { id: 'foto-6', src: '', alt: 'Espaço reservado para uma foto institucional', caption: '', shape: 'square' },
   ],
 });

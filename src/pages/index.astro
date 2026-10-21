@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import FeedbackSection from '../components/FeedbackSection.astro';
 import GalleryGrid from '../components/GalleryGrid.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
@@ -12,11 +12,11 @@ import GalleryGrid from '../components/GalleryGrid.astro';
     <div class="hero__shape" aria-hidden="true"></div>
     <div class="site-shell hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow">Oncologia e Hematologia Veterinária</p>
-        <h1 class="display-title">Ciência e cuidado em cada etapa.</h1>
+        <p class="eyebrow hero__eyebrow">Medicina é a arte de compartilhar a vida</p>
+        <h1 class="display-title">Oncologia é a arte de compartilhar esperança</h1>
         <p class="body-large">
-          Um espaço de informação e acolhimento para tornar jornadas delicadas
-          mais claras — para tutores, pacientes e equipes veterinárias.
+          Um espaço de informação e acolhimento para tornar jornadas delicadas mais claras — para tutores, pacientes e
+          equipes veterinárias.
         </p>
         <div class="hero__actions">
           <a class="button" href="/contato">Entrar em contato <span aria-hidden="true">→</span></a>
@@ -36,7 +36,7 @@ import GalleryGrid from '../components/GalleryGrid.astro';
           loading="eager"
           decoding="async"
           fetchpriority="high"
-        />
+        >
         <figcaption>
           <strong>Dra. Danielle Godoy</strong>
           <span>Oncologia e Hematologia Veterinária</span>
@@ -53,9 +53,8 @@ import GalleryGrid from '../components/GalleryGrid.astro';
       </div>
       <div class="intro__copy">
         <p class="body-large">
-          Algumas consultas chegam acompanhadas de dúvidas, exames e muita emoção.
-          A proposta deste espaço é organizar informações importantes e ajudar você
-          a se preparar para uma conversa veterinária mais tranquila e produtiva.
+          Algumas consultas chegam acompanhadas de dúvidas, exames e muita emoção. A proposta deste espaço é organizar
+          informações importantes e ajudar você a se preparar para uma conversa veterinária mais tranquila e produtiva.
         </p>
         <a class="text-link" href="/informacoes">Veja como se preparar</a>
       </div>
@@ -70,29 +69,44 @@ import GalleryGrid from '../components/GalleryGrid.astro';
           <h2 class="section-title">Olhar especializado, visão do todo.</h2>
         </div>
         <p>
-          Cada animal tem uma história única. A avaliação considera o contexto clínico,
-          os exames disponíveis e as necessidades da família.
+          Cada animal tem uma história única. A avaliação considera o contexto clínico, os exames disponíveis e as
+          necessidades da família.
         </p>
       </div>
 
       <div class="care__cards">
         <article>
           <span>01</span>
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 8c0 10-14 17-14 31a14 14 0 0 0 28 0C46 25 32 18 32 8Z"/><path d="M32 28c-3 6-8 11-8 17a8 8 0 0 0 16 0c0-6-5-11-8-17Z"/></svg>
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 8c0 10-14 17-14 31a14 14 0 0 0 28 0C46 25 32 18 32 8Z" />
+            <path d="M32 28c-3 6-8 11-8 17a8 8 0 0 0 16 0c0-6-5-11-8-17Z" />
+          </svg>
           <h3>Hematologia</h3>
           <p>Investigação cuidadosa de alterações relacionadas ao sangue e integração dos achados ao quadro clínico.</p>
         </article>
         <article>
           <span>02</span>
-          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="18"/><circle cx="26" cy="27" r="4"/><circle cx="39" cy="25" r="3"/><circle cx="37" cy="39" r="5"/><circle cx="23" cy="42" r="2"/></svg>
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="18" />
+            <circle cx="26" cy="27" r="4" />
+            <circle cx="39" cy="25" r="3" />
+            <circle cx="37" cy="39" r="5" />
+            <circle cx="23" cy="42" r="2" />
+          </svg>
           <h3>Oncologia</h3>
           <p>Avaliação especializada para discutir possibilidades e decisões com clareza, respeito e sensibilidade.</p>
         </article>
         <article>
           <span>03</span>
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M11 35c7-15 20-23 36-17 9 3 12 13 6 20-8 10-21 12-34 9"/><path d="M18 46c7 8 18 10 28 6M22 27c6 2 10 6 12 12M47 31h1"/></svg>
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M11 35c7-15 20-23 36-17 9 3 12 13 6 20-8 10-21 12-34 9" />
+            <path d="M18 46c7 8 18 10 28 6M22 27c6 2 10 6 12 12M47 31h1" />
+          </svg>
           <h3>Cuidado integrado</h3>
-          <p>Comunicação próxima com tutores e, quando necessário, diálogo com a equipe veterinária que acompanha o paciente.</p>
+          <p>
+            Comunicação próxima com tutores e, quando necessário, diálogo com a equipe veterinária que acompanha o
+            paciente.
+          </p>
         </article>
       </div>
     </div>
@@ -102,7 +116,10 @@ import GalleryGrid from '../components/GalleryGrid.astro';
     <div class="site-shell journey__grid">
       <div class="journey__visual noise-dots" aria-hidden="true">
         <div class="journey__drop">
-          <svg viewBox="0 0 100 126"><path d="M50 7c0 26-31 39-31 72a31 31 0 0 0 62 0C81 46 50 33 50 7Z"/><path d="M50 49c-7 14-18 25-18 38a18 18 0 0 0 36 0c0-13-11-24-18-38Z"/></svg>
+          <svg viewBox="0 0 100 126" aria-hidden="true">
+            <path d="M50 7c0 26-31 39-31 72a31 31 0 0 0 62 0C81 46 50 33 50 7Z" />
+            <path d="M50 49c-7 14-18 25-18 38a18 18 0 0 0 36 0c0-13-11-24-18-38Z" />
+          </svg>
         </div>
         <p>Informação para cuidar com presença.</p>
       </div>
@@ -112,15 +129,24 @@ import GalleryGrid from '../components/GalleryGrid.astro';
         <ol class="journey__steps">
           <li>
             <span>01</span>
-            <div><h3>Reúna o histórico</h3><p>Separe exames, receitas e informações de atendimentos anteriores.</p></div>
+            <div>
+              <h3>Reúna o histórico</h3>
+              <p>Separe exames, receitas e informações de atendimentos anteriores.</p>
+            </div>
           </li>
           <li>
             <span>02</span>
-            <div><h3>Anote suas dúvidas</h3><p>Leve perguntas e mudanças percebidas na rotina do seu animal.</p></div>
+            <div>
+              <h3>Anote suas dúvidas</h3>
+              <p>Leve perguntas e mudanças percebidas na rotina do seu animal.</p>
+            </div>
           </li>
           <li>
             <span>03</span>
-            <div><h3>Converse com calma</h3><p>A avaliação é o momento de organizar o caso e discutir os próximos passos possíveis.</p></div>
+            <div>
+              <h3>Converse com calma</h3>
+              <p>A avaliação é o momento de organizar o caso e discutir os próximos passos possíveis.</p>
+            </div>
           </li>
         </ol>
       </div>
@@ -135,8 +161,8 @@ import GalleryGrid from '../components/GalleryGrid.astro';
       </div>
       <div class="locations-preview__copy">
         <p>
-          Os endereços e horários serão publicados aqui assim que forem definidos.
-          A página já está pronta para receber essas informações.
+          Os endereços e horários serão publicados aqui assim que forem definidos. A página já está pronta para receber
+          essas informações.
         </p>
         <a class="button button--ghost" href="/locais">Ver locais</a>
       </div>
@@ -181,411 +207,424 @@ import GalleryGrid from '../components/GalleryGrid.astro';
 </BaseLayout>
 
 <style>
-  .hero {
-    position: relative;
-    overflow: hidden;
-    min-height: calc(100vh - 5.25rem);
-    background: var(--paper);
-  }
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 5.25rem);
+  background: var(--paper);
+}
 
-  .hero__shape {
-    position: absolute;
-    top: -20rem;
-    left: -17rem;
-    width: 42rem;
-    aspect-ratio: 1;
-    border: 1px solid rgba(24, 52, 76, 0.1);
-    border-radius: 50%;
-  }
+.hero__shape {
+  position: absolute;
+  top: -20rem;
+  left: -17rem;
+  width: 42rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(24, 52, 76, 0.1);
+  border-radius: 50%;
+}
 
-  .hero__shape::after {
-    position: absolute;
-    right: 3rem;
-    bottom: 5rem;
-    width: 7rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--blush);
-    content: '';
+.hero__shape::after {
+  position: absolute;
+  right: 3rem;
+  bottom: 5rem;
+  width: 7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blush);
+  content: "";
+}
+
+.hero__grid {
+  display: grid;
+  min-height: calc(100vh - 5.25rem);
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+}
+
+.hero .body-large {
+  max-width: 51ch;
+  margin: 1.6rem 0 0;
+}
+
+.hero__eyebrow {
+  font-family: var(--display);
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  text-transform: none;
+}
+
+.hero .display-title {
+  max-width: 14ch;
+  font-size: clamp(2.75rem, 5.2vw, 5.15rem);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.hero__note {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 2rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.hero__note span {
+  color: var(--wine);
+}
+
+.hero__portrait {
+  position: relative;
+  min-height: 36rem;
+  height: min(42rem, calc(100vh - 8.5rem));
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(24, 52, 76, 0.09);
+  border-radius: 16rem 16rem 2rem 2rem;
+  background: var(--warm);
+  box-shadow: var(--shadow);
+}
+
+.hero__portrait::before {
+  position: absolute;
+  z-index: 1;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 6rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(152, 31, 36, 0.3);
+  border-radius: 50%;
+  content: "";
+}
+
+.hero__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 23%;
+}
+
+.hero__portrait figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  display: grid;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 1.1rem;
+  background: rgba(251, 250, 248, 0.92);
+  padding: 1rem 1.15rem;
+  backdrop-filter: blur(14px);
+}
+
+.hero__portrait figcaption strong {
+  font-family: var(--display);
+  font-size: 1.25rem;
+}
+
+.hero__portrait figcaption span {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
+.intro__grid,
+.journey__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3rem, 10vw, 9rem);
+}
+
+.intro__copy {
+  align-self: end;
+}
+
+.intro__copy .body-large {
+  margin: 0 0 1.6rem;
+}
+
+.care {
+  background: var(--warm);
+}
+
+.care__heading,
+.feedback-preview__heading,
+.gallery-preview__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.care__heading > p {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.care__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.care__cards article {
+  min-height: 28rem;
+  border: 1px solid rgba(24, 52, 76, 0.08);
+  border-radius: 1.5rem;
+  background: var(--paper);
+  padding: 1.5rem;
+}
+
+.care__cards article:nth-child(2) {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.care__cards article > span {
+  color: var(--wine);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.care__cards article:nth-child(2) > span {
+  color: #efc6c9;
+}
+
+.care__cards svg {
+  width: 4.5rem;
+  margin: 3.5rem 0 2.5rem;
+  fill: none;
+  stroke: var(--wine);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.care__cards article:nth-child(2) svg {
+  stroke: #efc6c9;
+}
+
+.care__cards h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.care__cards p {
+  color: var(--ink-soft);
+}
+
+.care__cards article:nth-child(2) p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.journey__grid {
+  align-items: center;
+}
+
+.journey__visual {
+  position: relative;
+  display: grid;
+  min-height: 39rem;
+  overflow: hidden;
+  place-content: center;
+  border-radius: 18rem 18rem 2rem 2rem;
+  background-color: var(--blush);
+}
+
+.journey__visual::after {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 14rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(24, 52, 76, 0.13);
+  border-radius: 50%;
+  content: "";
+}
+
+.journey__drop {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 12rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.journey__drop svg {
+  width: 5.8rem;
+  fill: none;
+  stroke: var(--wine);
+  stroke-width: 2;
+}
+
+.journey__drop svg path:last-child {
+  fill: var(--wine);
+  stroke: none;
+}
+
+.journey__visual > p {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.journey__steps {
+  display: grid;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journey__steps li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1.2rem;
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0;
+}
+
+.journey__steps li > span {
+  color: var(--wine);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.journey__steps h3,
+.journey__steps p {
+  margin: 0;
+}
+
+.journey__steps h3 {
+  font-family: var(--display);
+  font-size: 1.3rem;
+}
+
+.journey__steps p {
+  margin-top: 0.25rem;
+  color: var(--ink-soft);
+}
+
+.locations-preview {
+  padding-top: 0;
+}
+
+.locations-preview__panel {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  border: 1px solid rgba(24, 52, 76, 0.1);
+  border-radius: 2rem;
+  background: var(--sage);
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.locations-preview__copy {
+  align-self: end;
+}
+
+.locations-preview__copy p {
+  margin: 0 0 1.5rem;
+  color: var(--ink-soft);
+}
+
+.feedback-preview {
+  background: var(--warm);
+}
+
+.gallery-preview__heading {
+  margin-bottom: 2.5rem;
+}
+
+.final-cta {
+  border-top: 1px solid rgba(24, 52, 76, 0.08);
+  background: var(--blush);
+}
+
+.final-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.final-cta h2 {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+@media (max-width: 900px) {
+  .hero__grid,
+  .intro__grid,
+  .journey__grid,
+  .locations-preview__panel {
+    grid-template-columns: 1fr;
   }
 
   .hero__grid {
-    display: grid;
-    min-height: calc(100vh - 5.25rem);
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    gap: clamp(2.5rem, 7vw, 7rem);
-    padding-block: clamp(3rem, 6vw, 6rem);
-  }
-
-  .hero__copy {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero .body-large {
-    max-width: 51ch;
-    margin: 1.6rem 0 0;
-  }
-
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 2rem;
-  }
-
-  .hero__note {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin: 2rem 0 0;
-    color: var(--ink-soft);
-    font-size: 0.84rem;
-  }
-
-  .hero__note span {
-    color: var(--wine);
+    min-height: auto;
   }
 
   .hero__portrait {
-    position: relative;
-    min-height: 36rem;
-    height: min(42rem, calc(100vh - 8.5rem));
-    margin: 0;
-    overflow: hidden;
-    border: 1px solid rgba(24, 52, 76, 0.09);
-    border-radius: 16rem 16rem 2rem 2rem;
-    background: var(--warm);
-    box-shadow: var(--shadow);
-  }
-
-  .hero__portrait::before {
-    position: absolute;
-    z-index: 1;
-    top: 1.4rem;
-    right: 1.4rem;
-    width: 6rem;
-    aspect-ratio: 1;
-    border: 1px solid rgba(152, 31, 36, 0.3);
-    border-radius: 50%;
-    content: '';
-  }
-
-  .hero__portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 23%;
-  }
-
-  .hero__portrait figcaption {
-    position: absolute;
-    z-index: 2;
-    right: 1.25rem;
-    bottom: 1.25rem;
-    left: 1.25rem;
-    display: grid;
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 1.1rem;
-    background: rgba(251, 250, 248, 0.92);
-    padding: 1rem 1.15rem;
-    backdrop-filter: blur(14px);
-  }
-
-  .hero__portrait figcaption strong {
-    font-family: var(--display);
-    font-size: 1.25rem;
-  }
-
-  .hero__portrait figcaption span {
-    color: var(--ink-soft);
-    font-size: 0.75rem;
-  }
-
-  .intro__grid,
-  .journey__grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: clamp(3rem, 10vw, 9rem);
-  }
-
-  .intro__copy {
-    align-self: end;
-  }
-
-  .intro__copy .body-large {
-    margin: 0 0 1.6rem;
-  }
-
-  .care {
-    background: var(--warm);
-  }
-
-  .care__heading,
-  .feedback-preview__heading,
-  .gallery-preview__heading {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .care__heading > p {
-    max-width: 42ch;
-    margin: 0;
-    color: var(--ink-soft);
+    width: min(100%, 35rem);
+    height: min(44rem, 115vw);
+    margin-inline: auto;
   }
 
   .care__cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
   }
 
   .care__cards article {
-    min-height: 28rem;
-    border: 1px solid rgba(24, 52, 76, 0.08);
-    border-radius: 1.5rem;
-    background: var(--paper);
-    padding: 1.5rem;
-  }
-
-  .care__cards article:nth-child(2) {
-    background: var(--ink);
-    color: var(--white);
-  }
-
-  .care__cards article > span {
-    color: var(--wine);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-  }
-
-  .care__cards article:nth-child(2) > span {
-    color: #efc6c9;
+    min-height: auto;
   }
 
   .care__cards svg {
-    width: 4.5rem;
-    margin: 3.5rem 0 2.5rem;
-    fill: none;
-    stroke: var(--wine);
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 1.6;
+    margin: 2rem 0 1.5rem;
   }
+}
 
-  .care__cards article:nth-child(2) svg {
-    stroke: #efc6c9;
-  }
-
-  .care__cards h3 {
-    margin: 0;
-    font-family: var(--display);
-    font-size: 2rem;
-    font-weight: 400;
-  }
-
-  .care__cards p {
-    color: var(--ink-soft);
-  }
-
-  .care__cards article:nth-child(2) p {
-    color: rgba(255, 255, 255, 0.68);
-  }
-
-  .journey__grid {
-    align-items: center;
-  }
-
-  .journey__visual {
-    position: relative;
-    display: grid;
-    min-height: 39rem;
-    overflow: hidden;
-    place-content: center;
-    border-radius: 18rem 18rem 2rem 2rem;
-    background-color: var(--blush);
-  }
-
-  .journey__visual::after {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    width: 14rem;
-    aspect-ratio: 1;
-    border: 1px solid rgba(24, 52, 76, 0.13);
-    border-radius: 50%;
-    content: '';
-  }
-
-  .journey__drop {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    width: 12rem;
-    aspect-ratio: 1;
-    place-items: center;
-    border-radius: 50%;
-    background: var(--white);
-    box-shadow: var(--shadow);
-  }
-
-  .journey__drop svg {
-    width: 5.8rem;
-    fill: none;
-    stroke: var(--wine);
-    stroke-width: 2;
-  }
-
-  .journey__drop svg path:last-child {
-    fill: var(--wine);
-    stroke: none;
-  }
-
-  .journey__visual > p {
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-    left: 2rem;
-    z-index: 1;
-    margin: 0;
-    font-family: var(--display);
-    font-size: 1.25rem;
-    text-align: center;
-  }
-
-  .journey__steps {
-    display: grid;
-    margin: 2.5rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .journey__steps li {
-    display: grid;
-    grid-template-columns: 3.2rem 1fr;
-    gap: 1.2rem;
-    border-top: 1px solid var(--line);
-    padding: 1.4rem 0;
-  }
-
-  .journey__steps li > span {
-    color: var(--wine);
-    font-size: 0.75rem;
-    font-weight: 800;
-  }
-
-  .journey__steps h3,
-  .journey__steps p {
-    margin: 0;
-  }
-
-  .journey__steps h3 {
-    font-family: var(--display);
-    font-size: 1.3rem;
-  }
-
-  .journey__steps p {
-    margin-top: 0.25rem;
-    color: var(--ink-soft);
-  }
-
-  .locations-preview {
-    padding-top: 0;
-  }
-
-  .locations-preview__panel {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
-    border: 1px solid rgba(24, 52, 76, 0.1);
-    border-radius: 2rem;
-    background: var(--sage);
-    padding: clamp(2rem, 6vw, 5rem);
-  }
-
-  .locations-preview__copy {
-    align-self: end;
-  }
-
-  .locations-preview__copy p {
-    margin: 0 0 1.5rem;
-    color: var(--ink-soft);
-  }
-
-  .feedback-preview {
-    background: var(--warm);
-  }
-
-  .gallery-preview__heading {
-    margin-bottom: 2.5rem;
-  }
-
-  .final-cta {
-    border-top: 1px solid rgba(24, 52, 76, 0.08);
-    background: var(--blush);
-  }
-
+@media (max-width: 700px) {
+  .care__heading,
+  .feedback-preview__heading,
+  .gallery-preview__heading,
   .final-cta__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-block: clamp(3.5rem, 7vw, 6rem);
+    align-items: flex-start;
+    flex-direction: column;
   }
-
-  .final-cta h2 {
-    max-width: 18ch;
-    margin: 0;
-    font-family: var(--display);
-    font-size: clamp(2rem, 4vw, 3.8rem);
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-  }
-
-  @media (max-width: 900px) {
-    .hero__grid,
-    .intro__grid,
-    .journey__grid,
-    .locations-preview__panel {
-      grid-template-columns: 1fr;
-    }
-
-    .hero__grid {
-      min-height: auto;
-    }
-
-    .hero__portrait {
-      width: min(100%, 35rem);
-      height: min(44rem, 115vw);
-      margin-inline: auto;
-    }
-
-    .care__cards {
-      grid-template-columns: 1fr;
-    }
-
-    .care__cards article {
-      min-height: auto;
-    }
-
-    .care__cards svg {
-      margin: 2rem 0 1.5rem;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .care__heading,
-    .feedback-preview__heading,
-    .gallery-preview__heading,
-    .final-cta__inner {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-  }
+}
 </style>

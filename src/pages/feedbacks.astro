@@ -1,13 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/PageIntro.astro';
 import FeedbackSection from '../components/FeedbackSection.astro';
+import PageIntro from '../components/PageIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout
-  title="Feedbacks"
-  description="Espaço dedicado a feedbacks autorizados sobre o atendimento veterinário."
->
+<BaseLayout title="Feedbacks" description="Espaço dedicado a feedbacks autorizados sobre o atendimento veterinário.">
   <PageIntro
     eyebrow="Experiências compartilhadas"
     title="Feedbacks"
@@ -27,9 +24,27 @@ import FeedbackSection from '../components/FeedbackSection.astro';
         <h2 class="section-title">Privacidade e autenticidade em primeiro lugar.</h2>
       </div>
       <div class="principles__items">
-        <article><span>01</span><div><h3>Autorização</h3><p>Somente relatos autorizados serão publicados.</p></div></article>
-        <article><span>02</span><div><h3>Privacidade</h3><p>Dados sensíveis podem ser omitidos ou adaptados para preservar identidades.</p></div></article>
-        <article><span>03</span><div><h3>Fidelidade</h3><p>O sentido do relato será preservado, sem criar promessas ou garantias.</p></div></article>
+        <article>
+          <span>01</span>
+          <div>
+            <h3>Autorização</h3>
+            <p>Somente relatos autorizados serão publicados.</p>
+          </div>
+        </article>
+        <article>
+          <span>02</span>
+          <div>
+            <h3>Privacidade</h3>
+            <p>Dados sensíveis podem ser omitidos ou adaptados para preservar identidades.</p>
+          </div>
+        </article>
+        <article>
+          <span>03</span>
+          <div>
+            <h3>Fidelidade</h3>
+            <p>O sentido do relato será preservado, sem criar promessas ou garantias.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -46,83 +61,83 @@ import FeedbackSection from '../components/FeedbackSection.astro';
 </BaseLayout>
 
 <style>
-  .feedback-page {
-    background: var(--paper);
-  }
+.feedback-page {
+  background: var(--paper);
+}
 
-  .principles {
-    background: var(--warm);
-    padding-block: clamp(4rem, 9vw, 8rem);
-  }
+.principles {
+  background: var(--warm);
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
 
+.principles__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3rem, 9vw, 8rem);
+}
+
+.principles__items {
+  border-top: 1px solid var(--line);
+}
+
+.principles__items article {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1.3rem 0;
+}
+
+.principles__items article > span {
+  color: var(--wine);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.principles__items h3,
+.principles__items p {
+  margin: 0;
+}
+
+.principles__items h3 {
+  font-family: var(--display);
+  font-size: 1.35rem;
+}
+
+.principles__items p {
+  color: var(--ink-soft);
+}
+
+.feedback-cta {
+  background: var(--blush);
+}
+
+.feedback-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.feedback-cta h2 {
+  max-width: 17ch;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.7rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+@media (max-width: 760px) {
   .principles__grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: clamp(3rem, 9vw, 8rem);
-  }
-
-  .principles__items {
-    border-top: 1px solid var(--line);
-  }
-
-  .principles__items article {
-    display: grid;
-    grid-template-columns: 3.2rem 1fr;
-    gap: 1rem;
-    border-bottom: 1px solid var(--line);
-    padding: 1.3rem 0;
-  }
-
-  .principles__items article > span {
-    color: var(--wine);
-    font-size: 0.72rem;
-    font-weight: 800;
-  }
-
-  .principles__items h3,
-  .principles__items p {
-    margin: 0;
-  }
-
-  .principles__items h3 {
-    font-family: var(--display);
-    font-size: 1.35rem;
-  }
-
-  .principles__items p {
-    color: var(--ink-soft);
-  }
-
-  .feedback-cta {
-    background: var(--blush);
+    grid-template-columns: 1fr;
   }
 
   .feedback-cta__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-block: clamp(3.5rem, 7vw, 6rem);
+    align-items: flex-start;
+    flex-direction: column;
   }
-
-  .feedback-cta h2 {
-    max-width: 17ch;
-    margin: 0;
-    font-family: var(--display);
-    font-size: clamp(2rem, 4vw, 3.7rem);
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-  }
-
-  @media (max-width: 760px) {
-    .principles__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .feedback-cta__inner {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-  }
+}
 </style>

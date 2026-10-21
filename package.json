@@ -9,7 +9,11 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "lint": "eslint . --max-warnings=0",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "quality": "biome check .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -24,7 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
-    "@eslint/js": "^10.0.1",
+    "@biomejs/biome": "2.5.15",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "^16.0.0",
@@ -32,13 +36,8 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^5.0.0",
-    "eslint": "^10.13.0",
-    "eslint-plugin-astro": "^3.2.1",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "globals": "^17.13.0",
     "jsdom": "^27.0.0",
     "typescript": "^5.7.0",
-    "typescript-eslint": "^8.72.0",
     "vercel": "^48.0.0",
     "vitest": "^3.0.0"
   }

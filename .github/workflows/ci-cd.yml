@@ -38,8 +38,8 @@ jobs:
       - name: Executar testes
         run: pnpm test
 
-      - name: Executar lint
-        run: pnpm lint
+      - name: Executar lint, formatação e organização de imports com Biome
+        run: pnpm quality
 
       - name: Validar tipos e gerar build SSG
         run: pnpm build

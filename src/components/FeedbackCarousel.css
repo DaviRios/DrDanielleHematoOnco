@@ -25,7 +25,7 @@
   aspect-ratio: 1;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 50%;
-  content: '';
+  content: "";
 }
 
 .feedback-empty__mark {

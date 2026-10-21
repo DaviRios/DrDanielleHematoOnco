@@ -1,13 +1,29 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { siteConfig } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const channels = [
-  { label: 'Telefone', value: siteConfig.contact.phone, href: siteConfig.contact.phone ? `tel:${siteConfig.contact.phone.replace(/\D/g, '')}` : '' },
-  { label: 'WhatsApp', value: siteConfig.contact.whatsapp, href: siteConfig.contact.whatsapp ? `https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, '')}` : '' },
-  { label: 'E-mail', value: siteConfig.contact.email, href: siteConfig.contact.email ? `mailto:${siteConfig.contact.email}` : '' },
-  { label: 'Instagram', value: siteConfig.contact.instagram, href: siteConfig.contact.instagram ? `https://instagram.com/${siteConfig.contact.instagram.replace('@', '')}` : '' },
+  {
+    label: 'Telefone',
+    value: siteConfig.contact.phone,
+    href: siteConfig.contact.phone ? `tel:${siteConfig.contact.phone.replace(/\D/g, '')}` : '',
+  },
+  {
+    label: 'WhatsApp',
+    value: siteConfig.contact.whatsapp,
+    href: siteConfig.contact.whatsapp ? `https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, '')}` : '',
+  },
+  {
+    label: 'E-mail',
+    value: siteConfig.contact.email,
+    href: siteConfig.contact.email ? `mailto:${siteConfig.contact.email}` : '',
+  },
+  {
+    label: 'Instagram',
+    value: siteConfig.contact.instagram,
+    href: siteConfig.contact.instagram ? `https://instagram.com/${siteConfig.contact.instagram.replace('@', '')}` : '',
+  },
 ];
 ---
 
@@ -27,8 +43,7 @@ const channels = [
         <p class="eyebrow">Canais de atendimento</p>
         <h2 class="section-title">Escolha a forma mais conveniente de conversar.</h2>
         <p class="body-large">
-          Telefones e demais canais estão intencionalmente em branco até a confirmação
-          dos dados oficiais.
+          Telefones e demais canais estão intencionalmente em branco até a confirmação dos dados oficiais.
         </p>
       </div>
       <div class="contact__channels">
@@ -38,7 +53,13 @@ const channels = [
             <div>
               <h3>{channel.label}</h3>
               {channel.value ? (
-                <a href={channel.href} target={channel.href.startsWith('http') ? '_blank' : undefined} rel={channel.href.startsWith('http') ? 'noreferrer' : undefined}>{channel.value}</a>
+                <a
+                  href={channel.href}
+                  target={channel.href.startsWith('http') ? '_blank' : undefined}
+                  rel={channel.href.startsWith('http') ? 'noreferrer' : undefined}
+                >
+                  {channel.value}
+                </a>
               ) : (
                 <p>Em breve</p>
               )}
@@ -53,8 +74,10 @@ const channels = [
   <section class="message-guide">
     <div class="site-shell message-guide__inner">
       <div class="message-guide__visual" aria-hidden="true">
-        <svg viewBox="0 0 200 200">
-          <path d="M39 47h122a17 17 0 0 1 17 17v72a17 17 0 0 1-17 17H82l-35 27 9-27H39a17 17 0 0 1-17-17V64a17 17 0 0 1 17-17Z" />
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <path
+            d="M39 47h122a17 17 0 0 1 17 17v72a17 17 0 0 1-17 17H82l-35 27 9-27H39a17 17 0 0 1-17-17V64a17 17 0 0 1 17-17Z"
+          />
           <path d="M58 83h84M58 105h61" />
           <circle cx="152" cy="105" r="7" />
         </svg>
@@ -69,8 +92,8 @@ const channels = [
           <li>Se há encaminhamento ou exames recentes.</li>
         </ul>
         <p class="message-guide__note">
-          Este site não realiza atendimento de emergência. Em situações urgentes,
-          procure um serviço veterinário presencial disponível na sua região.
+          Este site não realiza atendimento de emergência. Em situações urgentes, procure um serviço veterinário
+          presencial disponível na sua região.
         </p>
       </div>
     </div>
@@ -78,111 +101,111 @@ const channels = [
 </BaseLayout>
 
 <style>
-  .contact__grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: clamp(3rem, 9vw, 8rem);
-  }
+.contact__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3rem, 9vw, 8rem);
+}
 
-  .contact__grid .body-large {
-    max-width: 43ch;
-    margin-top: 1.5rem;
-  }
+.contact__grid .body-large {
+  max-width: 43ch;
+  margin-top: 1.5rem;
+}
 
-  .contact__channels {
-    border-top: 1px solid var(--line);
-  }
+.contact__channels {
+  border-top: 1px solid var(--line);
+}
 
-  .contact__channels article {
-    display: grid;
-    grid-template-columns: 3rem 1fr auto;
-    gap: 1rem;
-    border-bottom: 1px solid var(--line);
-    padding: 1.4rem 0;
-  }
+.contact__channels article {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0;
+}
 
-  .contact__channels article > span:first-child {
-    color: var(--wine);
-    font-size: 0.72rem;
-    font-weight: 800;
-  }
+.contact__channels article > span:first-child {
+  color: var(--wine);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
 
-  .contact__channels h3,
-  .contact__channels p {
-    margin: 0;
-  }
+.contact__channels h3,
+.contact__channels p {
+  margin: 0;
+}
 
-  .contact__channels h3 {
-    font-family: var(--display);
-    font-size: 1.4rem;
-    font-weight: 400;
-  }
+.contact__channels h3 {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
 
-  .contact__channels p {
-    color: var(--ink-soft);
-    font-size: 0.86rem;
-  }
+.contact__channels p {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
 
-  .contact__channels a {
-    color: var(--wine);
-    font-weight: 700;
-  }
+.contact__channels a {
+  color: var(--wine);
+  font-weight: 700;
+}
 
-  .message-guide {
-    background: var(--warm);
-    padding-block: clamp(4rem, 9vw, 8rem);
-  }
+.message-guide {
+  background: var(--warm);
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
 
+.message-guide__inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: clamp(3rem, 9vw, 8rem);
+}
+
+.message-guide__visual {
+  display: grid;
+  min-height: 31rem;
+  place-items: center;
+  border-radius: 2rem 16rem 16rem 2rem;
+  background: var(--blush);
+}
+
+.message-guide__visual svg {
+  width: 48%;
+  fill: none;
+  stroke: var(--wine);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.message-guide ul {
+  display: grid;
+  gap: 0.8rem;
+  padding-left: 1.2rem;
+}
+
+.message-guide li::marker {
+  color: var(--wine);
+}
+
+.message-guide__note {
+  margin-top: 2rem;
+  border-left: 2px solid var(--wine);
+  padding-left: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.87rem;
+}
+
+@media (max-width: 760px) {
+  .contact__grid,
   .message-guide__inner {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    align-items: center;
-    gap: clamp(3rem, 9vw, 8rem);
+    grid-template-columns: 1fr;
   }
 
   .message-guide__visual {
-    display: grid;
-    min-height: 31rem;
-    place-items: center;
-    border-radius: 2rem 16rem 16rem 2rem;
-    background: var(--blush);
+    min-height: 22rem;
   }
-
-  .message-guide__visual svg {
-    width: 48%;
-    fill: none;
-    stroke: var(--wine);
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 3;
-  }
-
-  .message-guide ul {
-    display: grid;
-    gap: 0.8rem;
-    padding-left: 1.2rem;
-  }
-
-  .message-guide li::marker {
-    color: var(--wine);
-  }
-
-  .message-guide__note {
-    margin-top: 2rem;
-    border-left: 2px solid var(--wine);
-    padding-left: 1rem;
-    color: var(--ink-soft);
-    font-size: 0.87rem;
-  }
-
-  @media (max-width: 760px) {
-    .contact__grid,
-    .message-guide__inner {
-      grid-template-columns: 1fr;
-    }
-
-    .message-guide__visual {
-      min-height: 22rem;
-    }
-  }
+}
 </style>

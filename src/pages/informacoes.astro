@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const topics = [
   {
@@ -39,8 +39,8 @@ const topics = [
           <h2 class="section-title">Pequenos preparos fazem diferença.</h2>
         </div>
         <p>
-          Não há problema se você não tiver todos os dados. Traga o que estiver disponível
-          e conte o que percebeu no dia a dia do seu animal.
+          Não há problema se você não tiver todos os dados. Traga o que estiver disponível e conte o que percebeu no dia
+          a dia do seu animal.
         </p>
       </div>
       <div class="preparation__grid">
@@ -61,15 +61,23 @@ const topics = [
         <p class="eyebrow">Durante a avaliação</p>
         <h2 class="section-title">Um encontro para compreender o caso.</h2>
         <p class="body-large">
-          O histórico, o exame clínico e os resultados disponíveis são analisados em conjunto.
-          A partir disso, podem ser discutidas hipóteses, necessidades de investigação e próximos passos.
+          O histórico, o exame clínico e os resultados disponíveis são analisados em conjunto. A partir disso, podem ser
+          discutidas hipóteses, necessidades de investigação e próximos passos.
         </p>
       </div>
-      <div class="consultation__diagram" aria-label="Histórico, avaliação e orientação fazem parte de uma mesma jornada">
+      <div
+        class="consultation__diagram"
+        role="img"
+        aria-label="Histórico, avaliação e orientação fazem parte de uma mesma jornada"
+      >
         <div><span>01</span><strong>Histórico</strong></div>
         <div><span>02</span><strong>Avaliação</strong></div>
         <div><span>03</span><strong>Orientação</strong></div>
-        <svg viewBox="0 0 500 500" aria-hidden="true"><circle cx="250" cy="250" r="190"/><circle cx="250" cy="250" r="125"/><path d="M250 60v65M86 345l57-34M414 345l-57-34"/></svg>
+        <svg viewBox="0 0 500 500" aria-hidden="true">
+          <circle cx="250" cy="250" r="190" />
+          <circle cx="250" cy="250" r="125" />
+          <path d="M250 60v65M86 345l57-34M414 345l-57-34" />
+        </svg>
       </div>
     </div>
   </section>
@@ -83,15 +91,23 @@ const topics = [
       <div class="faq__list">
         <details open>
           <summary>Preciso levar exames antigos?</summary>
-          <p>Sim. Mesmo exames realizados anteriormente podem ajudar a visualizar a evolução do quadro e o contexto do paciente.</p>
+          <p>
+            Sim. Mesmo exames realizados anteriormente podem ajudar a visualizar a evolução do quadro e o contexto do
+            paciente.
+          </p>
         </details>
         <details>
           <summary>Posso levar uma lista de perguntas?</summary>
-          <p>Sim. Ter as dúvidas anotadas é uma forma prática de organizar a conversa e não esquecer pontos importantes.</p>
+          <p>
+            Sim. Ter as dúvidas anotadas é uma forma prática de organizar a conversa e não esquecer pontos importantes.
+          </p>
         </details>
         <details>
           <summary>O site substitui uma avaliação veterinária?</summary>
-          <p>Não. O conteúdo é informativo e não oferece diagnóstico, prescrição ou orientação individual sem avaliação profissional.</p>
+          <p>
+            Não. O conteúdo é informativo e não oferece diagnóstico, prescrição ou orientação individual sem avaliação
+            profissional.
+          </p>
         </details>
         <details>
           <summary>Como confirmo o local e o horário?</summary>
@@ -107,8 +123,8 @@ const topics = [
       <div>
         <h2>Atenção a situações urgentes</h2>
         <p>
-          Em caso de piora súbita, dificuldade para respirar, sangramento intenso, convulsão,
-          perda de consciência ou outro sinal grave, procure atendimento veterinário de emergência.
+          Em caso de piora súbita, dificuldade para respirar, sangramento intenso, convulsão, perda de consciência ou
+          outro sinal grave, procure atendimento veterinário de emergência.
         </p>
       </div>
     </div>
@@ -116,192 +132,201 @@ const topics = [
 </BaseLayout>
 
 <style>
-  .preparation__heading {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: end;
-    gap: 4rem;
-    margin-bottom: 3rem;
-  }
+.preparation__heading {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: end;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
 
-  .preparation__heading > p {
-    margin: 0;
-    color: var(--ink-soft);
-  }
+.preparation__heading > p {
+  margin: 0;
+  color: var(--ink-soft);
+}
 
-  .preparation__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
+.preparation__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
 
-  .preparation__grid article {
-    min-height: 23rem;
-    border: 1px solid rgba(24, 52, 76, 0.1);
-    border-radius: 1.5rem;
-    background: var(--white);
-    padding: 1.6rem;
-  }
+.preparation__grid article {
+  min-height: 23rem;
+  border: 1px solid rgba(24, 52, 76, 0.1);
+  border-radius: 1.5rem;
+  background: var(--white);
+  padding: 1.6rem;
+}
 
-  .preparation__grid article:nth-child(2) {
-    background: var(--blush);
-  }
+.preparation__grid article:nth-child(2) {
+  background: var(--blush);
+}
 
-  .preparation__grid article:nth-child(3) {
-    background: var(--sage);
-  }
+.preparation__grid article:nth-child(3) {
+  background: var(--sage);
+}
 
-  .preparation__grid span {
-    color: var(--wine);
-    font-size: 0.75rem;
-    font-weight: 800;
-  }
+.preparation__grid span {
+  color: var(--wine);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
 
-  .preparation__grid h3 {
-    max-width: 10ch;
-    margin: 5rem 0 1rem;
-    font-family: var(--display);
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1.05;
-  }
+.preparation__grid h3 {
+  max-width: 10ch;
+  margin: 5rem 0 1rem;
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
 
-  .preparation__grid p {
-    color: var(--ink-soft);
-  }
+.preparation__grid p {
+  color: var(--ink-soft);
+}
 
-  .consultation {
-    background: var(--ink);
-    color: var(--white);
-    padding-block: clamp(4rem, 9vw, 8rem);
-  }
+.consultation {
+  background: var(--ink);
+  color: var(--white);
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
 
-  .consultation__grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    align-items: center;
-    gap: clamp(3rem, 9vw, 8rem);
-  }
+.consultation__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(3rem, 9vw, 8rem);
+}
 
-  .consultation .eyebrow {
-    color: #efc6c9;
-  }
+.consultation .eyebrow {
+  color: #efc6c9;
+}
 
-  .consultation .body-large {
-    max-width: 48ch;
-    color: rgba(255, 255, 255, 0.68);
-  }
+.consultation .body-large {
+  max-width: 48ch;
+  color: rgba(255, 255, 255, 0.68);
+}
 
-  .consultation__diagram {
-    position: relative;
-    aspect-ratio: 1;
-  }
+.consultation__diagram {
+  position: relative;
+  aspect-ratio: 1;
+}
 
-  .consultation__diagram svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    fill: none;
-    stroke: rgba(255, 255, 255, 0.18);
-    stroke-width: 1;
-  }
+.consultation__diagram svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+}
 
-  .consultation__diagram div {
-    position: absolute;
-    z-index: 1;
-    display: grid;
-    width: 8.5rem;
-    aspect-ratio: 1;
-    place-content: center;
-    border-radius: 50%;
-    background: var(--paper);
-    color: var(--ink);
-    text-align: center;
-  }
+.consultation__diagram div {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  width: 8.5rem;
+  aspect-ratio: 1;
+  place-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+}
 
-  .consultation__diagram div:nth-child(1) { top: 2%; left: calc(50% - 4.25rem); }
-  .consultation__diagram div:nth-child(2) { bottom: 8%; left: 6%; }
-  .consultation__diagram div:nth-child(3) { right: 6%; bottom: 8%; }
+.consultation__diagram div:nth-child(1) {
+  top: 2%;
+  left: calc(50% - 4.25rem);
+}
+.consultation__diagram div:nth-child(2) {
+  bottom: 8%;
+  left: 6%;
+}
+.consultation__diagram div:nth-child(3) {
+  right: 6%;
+  bottom: 8%;
+}
 
-  .consultation__diagram span {
-    color: var(--wine);
-    font-size: 0.7rem;
-    font-weight: 800;
-  }
+.consultation__diagram span {
+  color: var(--wine);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
 
+.faq__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(3rem, 9vw, 8rem);
+}
+
+.faq__list {
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 1.35rem 0;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.faq details p {
+  max-width: 60ch;
+  margin: 0.8rem 0 0;
+  color: var(--ink-soft);
+}
+
+.info-note {
+  background: var(--blush);
+  padding-block: 3rem;
+}
+
+.info-note__inner {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.info-note__inner > span {
+  display: grid;
+  width: 4rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--white);
+  font-family: var(--display);
+  font-size: 1.7rem;
+}
+
+.info-note h2,
+.info-note p {
+  margin: 0;
+}
+
+.info-note h2 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+}
+
+.info-note p {
+  max-width: 70ch;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 800px) {
+  .preparation__heading,
+  .preparation__grid,
+  .consultation__grid,
   .faq__grid {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: clamp(3rem, 9vw, 8rem);
+    grid-template-columns: 1fr;
   }
-
-  .faq__list {
-    border-top: 1px solid var(--line);
-  }
-
-  .faq details {
-    border-bottom: 1px solid var(--line);
-    padding: 1.35rem 0;
-  }
-
-  .faq summary {
-    cursor: pointer;
-    font-family: var(--display);
-    font-size: 1.35rem;
-    font-weight: 700;
-  }
-
-  .faq details p {
-    max-width: 60ch;
-    margin: 0.8rem 0 0;
-    color: var(--ink-soft);
-  }
-
-  .info-note {
-    background: var(--blush);
-    padding-block: 3rem;
-  }
-
-  .info-note__inner {
-    display: grid;
-    grid-template-columns: 4rem 1fr;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .info-note__inner > span {
-    display: grid;
-    width: 4rem;
-    aspect-ratio: 1;
-    place-items: center;
-    border-radius: 50%;
-    background: var(--wine);
-    color: var(--white);
-    font-family: var(--display);
-    font-size: 1.7rem;
-  }
-
-  .info-note h2,
-  .info-note p {
-    margin: 0;
-  }
-
-  .info-note h2 {
-    font-family: var(--display);
-    font-size: 1.5rem;
-  }
-
-  .info-note p {
-    max-width: 70ch;
-    color: var(--ink-soft);
-  }
-
-  @media (max-width: 800px) {
-    .preparation__heading,
-    .preparation__grid,
-    .consultation__grid,
-    .faq__grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
 </style>
