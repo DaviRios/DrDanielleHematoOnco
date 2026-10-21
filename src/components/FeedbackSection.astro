@@ -1,6 +1,5 @@
 ---
-import FeedbackCarousel from './FeedbackCarousel';
-import './FeedbackCarousel.css';
+import InfiniteMarquee from '@astroanimate/core/InfiniteMarquee';
 import { siteConfig } from '../data/site';
 
 interface Props {
@@ -10,20 +9,46 @@ interface Props {
 const { compact = false } = Astro.props;
 ---
 
-<div class:list={['feedback-wrap', { 'feedback-wrap--compact': compact }]}>
-  {siteConfig.feedbacks.length === 0 && (
-    <div class="feedback-empty" role="status">
-      <span class="feedback-empty__mark" aria-hidden="true">
-        “
-      </span>
-      <div>
-        <p class="feedback-empty__label">Espaço preparado</p>
-        <h2>Os feedbacks serão adicionados aqui.</h2>
-        <p>A seção já está pronta para receber relatos autorizados, sem publicar nomes ou experiências fictícias.</p>
-      </div>
-    </div>
-  )}
-  {siteConfig.feedbacks.length > 0 && <FeedbackCarousel feedbacks={siteConfig.feedbacks} client:visible />}
+<div class:list={['feedback-wrap', { 'feedback-wrap--compact': compact }]} data-feedback-marquee-root>
+  <div class="feedback-marquee-toolbar">
+    <p class="feedback-demo-note">
+      <span aria-hidden="true">✦</span>
+      Conteúdos demonstrativos para visualização do layout. Serão substituídos por relatos reais e autorizados.
+    </p>
+    <button type="button" class="feedback-marquee-toggle" data-feedback-marquee-toggle aria-pressed="false" hidden>
+      <span aria-hidden="true" data-feedback-marquee-icon>Ⅱ</span>
+      <span data-feedback-marquee-label>Pausar movimento</span>
+    </button>
+  </div>
+
+  <section
+    class="feedback-marquee-region"
+    aria-label="Exemplos visuais de feedbacks"
+    aria-describedby="feedback-demo-description"
+    data-feedback-marquee-region
+  >
+    <span id="feedback-demo-description" class="sr-only">
+      Lista animada de relatos fictícios usados somente para demonstrar o futuro espaço de feedbacks. A animação pausa
+      ao receber foco ou ao passar o ponteiro.
+    </span>
+    <InfiniteMarquee direction="left" speed="52s" pauseOnHover gap="1rem" mainClassName="feedback-marquee">
+      {siteConfig.feedbacks.map((feedback, index) => (
+        <article class="feedback-marquee-card">
+          <header>
+            <span class="feedback-marquee-card__label">{feedback.isMock ? 'Exemplo visual' : 'Relato autorizado'}</span>
+            <span class="feedback-marquee-card__number" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </header>
+          <blockquote>“{feedback.quote}”</blockquote>
+          <footer>
+            <strong>{feedback.author}</strong>
+            {feedback.context && <span>{feedback.context}</span>}
+          </footer>
+        </article>
+      ))}
+    </InfiniteMarquee>
+  </section>
 </div>
 
 <style>
@@ -32,7 +57,208 @@ const { compact = false } = Astro.props;
 }
 
 .feedback-wrap--compact {
-  max-width: 930px;
+  max-width: 76rem;
   margin-inline: auto;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.feedback-demo-note {
+  display: flex;
+  max-width: 72ch;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.feedback-demo-note span {
+  color: var(--wine);
+}
+
+.feedback-marquee-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.feedback-marquee-toggle {
+  display: inline-flex;
+  min-height: 2.45rem;
+  flex: 0 0 auto;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(24, 52, 76, 0.18);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  padding: 0.5rem 0.85rem;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.feedback-marquee-toggle:hover {
+  border-color: var(--wine);
+  color: var(--wine);
+}
+
+.feedback-marquee-toggle:focus-visible {
+  outline: 3px solid rgba(152, 31, 36, 0.3);
+  outline-offset: 0.2rem;
+}
+
+.feedback-marquee-region {
+  overflow: hidden;
+  border-radius: 2rem;
+  background: var(--ink);
+  padding-block: 0.75rem;
+  outline: none;
+}
+
+.feedback-marquee-region[data-paused="true"] :global(.marquee-content) {
+  animation-play-state: paused !important;
+}
+
+:global(.feedback-marquee) {
+  border-radius: inherit;
+  background: transparent;
+}
+
+:global(.feedback-marquee-card) {
+  display: flex;
+  width: clamp(19rem, 35vw, 25rem);
+  min-height: 21rem;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--white);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+:global(.feedback-marquee-card header) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+:global(.feedback-marquee-card__label),
+:global(.feedback-marquee-card__number) {
+  color: #efc6c9;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+:global(.feedback-marquee-card blockquote) {
+  margin: 2rem 0;
+  font-family: var(--display);
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+}
+
+:global(.feedback-marquee-card footer) {
+  display: grid;
+  gap: 0.2rem;
+}
+
+:global(.feedback-marquee-card footer strong) {
+  font-size: 0.94rem;
+}
+
+:global(.feedback-marquee-card footer span) {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-marquee-toggle {
+    display: none;
+  }
+
+  :global(.feedback-marquee) {
+    overflow-x: auto;
+    mask-image: none !important;
+  }
+
+  :global(.feedback-marquee .marquee-track) {
+    width: 100%;
+  }
+
+  :global(.feedback-marquee .marquee-content[data-marquee-part]:not([data-marquee-part="1"])) {
+    display: none !important;
+  }
+
+  :global(.feedback-marquee .marquee-content[data-marquee-part="1"]) {
+    display: grid !important;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1rem;
+  }
+
+  :global(.feedback-marquee-card) {
+    width: auto;
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .feedback-marquee-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  :global(.feedback-marquee-card) {
+    width: min(19rem, calc(100vw - 3.5rem));
+    min-height: 20rem;
+  }
+}
+
+@media (max-width: 680px) and (prefers-reduced-motion: reduce) {
+  :global(.feedback-marquee .marquee-content[data-marquee-part="1"]) {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
+
+<script>
+document.querySelectorAll<HTMLElement>('[data-feedback-marquee-root]').forEach((root) => {
+  if (root.dataset.controlsReady === 'true') return;
+
+  const button = root.querySelector<HTMLButtonElement>('[data-feedback-marquee-toggle]');
+  const region = root.querySelector<HTMLElement>('[data-feedback-marquee-region]');
+  const label = root.querySelector<HTMLElement>('[data-feedback-marquee-label]');
+  const icon = root.querySelector<HTMLElement>('[data-feedback-marquee-icon]');
+
+  if (!button || !region || !label || !icon) return;
+
+  root.dataset.controlsReady = 'true';
+  button.hidden = false;
+  button.addEventListener('click', () => {
+    const paused = region.dataset.paused !== 'true';
+    region.dataset.paused = String(paused);
+    button.setAttribute('aria-pressed', String(paused));
+    label.textContent = paused ? 'Retomar movimento' : 'Pausar movimento';
+    icon.textContent = paused ? '▶' : 'Ⅱ';
+  });
+});
+</script>

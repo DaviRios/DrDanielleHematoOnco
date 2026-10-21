@@ -1,4 +1,6 @@
 ---
+import FadeInText from '@astroanimate/core/FadeInText';
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -11,14 +13,29 @@ const { eyebrow, title, description } = Astro.props;
 <section class="page-intro">
   <div class="page-intro__orb" aria-hidden="true"></div>
   <div class="site-shell page-intro__inner">
-    <nav class="breadcrumb" aria-label="Navegação estrutural">
+    <FadeInText
+      as="nav"
+      class="breadcrumb"
+      aria-label="Navegação estrutural"
+      enhance
+      duration={0.45}
+      delay={0.48}
+      yOffset={10}
+      blur="3px"
+    >
       <a href="/">Início</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">{title}</span>
-    </nav>
-    <p class="eyebrow">{eyebrow}</p>
-    <h1 class="display-title">{title}</h1>
-    <p class="body-large">{description}</p>
+    </FadeInText>
+    <FadeInText as="p" class="eyebrow" enhance duration={0.5} delay={0.54} yOffset={12} blur="3px">
+      {eyebrow}
+    </FadeInText>
+    <FadeInText as="h1" class="display-title" enhance duration={0.65} delay={0.6} yOffset={18} blur="5px">
+      {title}
+    </FadeInText>
+    <FadeInText as="p" class="body-large" enhance duration={0.6} delay={0.7} yOffset={16} blur="4px">
+      {description}
+    </FadeInText>
   </div>
 </section>
 

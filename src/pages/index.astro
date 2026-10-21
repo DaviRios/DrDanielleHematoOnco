@@ -1,5 +1,8 @@
 ---
 import { Picture } from 'astro:assets';
+import FadeInText from '@astroanimate/core/FadeInText';
+import HighlightText from '@astroanimate/core/HighlightText';
+import ScaleIn from '@astroanimate/core/ScaleIn';
 import portrait from '../assets/dra-danielle-godoy.png';
 import FeedbackSection from '../components/FeedbackSection.astro';
 import GalleryGrid from '../components/GalleryGrid.astro';
@@ -14,73 +17,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="hero__shape" aria-hidden="true"></div>
     <div class="site-shell hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow hero__eyebrow">Medicina é a arte de compartilhar a vida</p>
-        <h1 class="display-title">Oncologia é a arte de compartilhar esperança</h1>
-        <p class="body-large">
+        <FadeInText as="p" class="eyebrow hero__eyebrow" enhance duration={0.5} delay={0.48} yOffset={12} blur="3px">
+          Medicina é a arte de compartilhar a vida
+        </FadeInText>
+        <FadeInText as="h1" class="display-title" enhance duration={0.7} delay={0.56} yOffset={20} blur="5px">
+          Oncologia é a arte de compartilhar{' '}
+          <HighlightText
+            variant="underline"
+            color="rgba(152, 31, 36, 0.28)"
+            duration="850ms"
+            delay="900ms"
+            thickness="0.12em"
+            padding="0"
+          >
+            esperança
+          </HighlightText>
+        </FadeInText>
+        <FadeInText as="p" class="body-large" enhance duration={0.6} delay={0.68} yOffset={16} blur="4px">
           Um espaço de informação e acolhimento para tornar jornadas delicadas mais claras — para tutores, pacientes e
           equipes veterinárias.
-        </p>
-        <div class="hero__actions">
+        </FadeInText>
+        <FadeInText as="div" class="hero__actions" enhance duration={0.55} delay={0.78} yOffset={14} blur="3px">
           <a class="button" href="/contato">Entrar em contato <span aria-hidden="true">→</span></a>
           <a class="button button--ghost" href="/informacoes">Entender o atendimento</a>
-        </div>
-        <p class="hero__note">
+        </FadeInText>
+        <FadeInText as="p" class="hero__note" enhance duration={0.5} delay={0.86} yOffset={10} blur="2px">
           <span aria-hidden="true">✦</span>
           Atendimento especializado com abordagem individualizada.
-        </p>
+        </FadeInText>
       </div>
-      <figure class="hero__portrait">
-        <Picture
-          src={portrait}
-          formats={['avif', 'webp']}
-          fallbackFormat="jpg"
-          widths={[320, 434]}
-          sizes="(max-width: 900px) min(100vw - 1.25rem, 35rem), min(44vw, 35rem)"
-          quality={82}
-          alt="Dra. Danielle Godoy com jaleco branco e estetoscópio"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
-        <figcaption>
-          <strong>Dra. Danielle Godoy</strong>
-          <span>Oncologia e Hematologia Veterinária</span>
-        </figcaption>
-      </figure>
+      <ScaleIn
+        class="hero__portrait-motion"
+        enhance
+        initialScale={0.96}
+        duration={800}
+        delay={620}
+        easing="cubic-bezier(0.22, 1, 0.36, 1)"
+      >
+        <figure class="hero__portrait">
+          <Picture
+            src={portrait}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpg"
+            widths={[320, 434]}
+            sizes="(max-width: 900px) min(100vw - 1.25rem, 35rem), min(44vw, 35rem)"
+            quality={82}
+            alt="Dra. Danielle Godoy com jaleco branco e estetoscópio"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <figcaption>
+            <strong>Dra. Danielle Godoy</strong>
+            <span>Oncologia e Hematologia Veterinária</span>
+          </figcaption>
+        </figure>
+      </ScaleIn>
     </div>
   </section>
 
   <section class="intro page-section">
     <div class="site-shell intro__grid">
-      <div>
+      <FadeInText enhance duration={0.6} yOffset={20} blur="4px">
         <p class="eyebrow">Sobre o cuidado</p>
         <h2 class="section-title">Compreender o caso também é parte do tratamento.</h2>
-      </div>
-      <div class="intro__copy">
+      </FadeInText>
+      <FadeInText class="intro__copy" enhance duration={0.6} delay={0.08} yOffset={20} blur="4px">
         <p class="body-large">
           Algumas consultas chegam acompanhadas de dúvidas, exames e muita emoção. A proposta deste espaço é organizar
           informações importantes e ajudar você a se preparar para uma conversa veterinária mais tranquila e produtiva.
         </p>
         <a class="text-link" href="/informacoes">Veja como se preparar</a>
-      </div>
+      </FadeInText>
     </div>
   </section>
 
   <section class="care page-section">
     <div class="site-shell">
       <div class="care__heading">
-        <div>
+        <FadeInText enhance duration={0.6} yOffset={20} blur="4px">
           <p class="eyebrow">Áreas de atenção</p>
           <h2 class="section-title">Olhar especializado, visão do todo.</h2>
-        </div>
-        <p>
+        </FadeInText>
+        <FadeInText as="p" enhance duration={0.6} delay={0.08} yOffset={18} blur="3px">
           Cada animal tem uma história única. A avaliação considera o contexto clínico, os exames disponíveis e as
           necessidades da família.
-        </p>
+        </FadeInText>
       </div>
 
       <div class="care__cards">
-        <article>
+        <ScaleIn as="article" enhance initialScale={0.96} duration={650}>
           <span>01</span>
           <svg viewBox="0 0 64 64" aria-hidden="true">
             <path d="M32 8c0 10-14 17-14 31a14 14 0 0 0 28 0C46 25 32 18 32 8Z" />
@@ -88,8 +114,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </svg>
           <h3>Hematologia</h3>
           <p>Investigação cuidadosa de alterações relacionadas ao sangue e integração dos achados ao quadro clínico.</p>
-        </article>
-        <article>
+        </ScaleIn>
+        <ScaleIn as="article" enhance initialScale={0.96} duration={650} delay={90}>
           <span>02</span>
           <svg viewBox="0 0 64 64" aria-hidden="true">
             <circle cx="32" cy="32" r="18" />
@@ -100,8 +126,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </svg>
           <h3>Oncologia</h3>
           <p>Avaliação especializada para discutir possibilidades e decisões com clareza, respeito e sensibilidade.</p>
-        </article>
-        <article>
+        </ScaleIn>
+        <ScaleIn as="article" enhance initialScale={0.96} duration={650} delay={180}>
           <span>03</span>
           <svg viewBox="0 0 64 64" aria-hidden="true">
             <path d="M11 35c7-15 20-23 36-17 9 3 12 13 6 20-8 10-21 12-34 9" />
@@ -112,14 +138,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Comunicação próxima com tutores e, quando necessário, diálogo com a equipe veterinária que acompanha o
             paciente.
           </p>
-        </article>
+        </ScaleIn>
       </div>
     </div>
   </section>
 
   <section class="journey page-section">
     <div class="site-shell journey__grid">
-      <div class="journey__visual noise-dots" aria-hidden="true">
+      <ScaleIn class="journey__visual noise-dots" aria-hidden="true" enhance initialScale={0.96} duration={750}>
         <div class="journey__drop">
           <svg viewBox="0 0 100 126" aria-hidden="true">
             <path d="M50 7c0 26-31 39-31 72a31 31 0 0 0 62 0C81 46 50 33 50 7Z" />
@@ -127,32 +153,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </svg>
         </div>
         <p>Informação para cuidar com presença.</p>
-      </div>
+      </ScaleIn>
       <div>
-        <p class="eyebrow">Sua jornada</p>
-        <h2 class="section-title">O que esperar antes da consulta.</h2>
+        <FadeInText enhance duration={0.6} yOffset={20} blur="4px">
+          <p class="eyebrow">Sua jornada</p>
+          <h2 class="section-title">O que esperar antes da consulta.</h2>
+        </FadeInText>
         <ol class="journey__steps">
-          <li>
+          <ScaleIn as="li" enhance initialScale={0.98} duration={520}>
             <span>01</span>
             <div>
               <h3>Reúna o histórico</h3>
               <p>Separe exames, receitas e informações de atendimentos anteriores.</p>
             </div>
-          </li>
-          <li>
+          </ScaleIn>
+          <ScaleIn as="li" enhance initialScale={0.98} duration={520} delay={70}>
             <span>02</span>
             <div>
               <h3>Anote suas dúvidas</h3>
               <p>Leve perguntas e mudanças percebidas na rotina do seu animal.</p>
             </div>
-          </li>
-          <li>
+          </ScaleIn>
+          <ScaleIn as="li" enhance initialScale={0.98} duration={520} delay={140}>
             <span>03</span>
             <div>
               <h3>Converse com calma</h3>
               <p>A avaliação é o momento de organizar o caso e discutir os próximos passos possíveis.</p>
             </div>
-          </li>
+          </ScaleIn>
         </ol>
       </div>
     </div>
@@ -160,28 +188,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="locations-preview page-section">
     <div class="site-shell locations-preview__panel">
-      <div>
+      <FadeInText enhance duration={0.6} yOffset={18} blur="4px">
         <p class="eyebrow">Locais de atendimento</p>
         <h2 class="section-title">Encontre o atendimento mais conveniente.</h2>
-      </div>
-      <div class="locations-preview__copy">
+      </FadeInText>
+      <FadeInText class="locations-preview__copy" enhance duration={0.6} delay={0.08} yOffset={18} blur="3px">
         <p>
           Os endereços e horários serão publicados aqui assim que forem definidos. A página já está pronta para receber
           essas informações.
         </p>
         <a class="button button--ghost" href="/locais">Ver locais</a>
-      </div>
+      </FadeInText>
     </div>
   </section>
 
   <section class="feedback-preview page-section">
     <div class="site-shell">
       <div class="feedback-preview__heading">
-        <div>
+        <FadeInText enhance duration={0.6} yOffset={18} blur="4px">
           <p class="eyebrow">Feedbacks</p>
-          <h2 class="section-title">Relatos que serão compartilhados com cuidado.</h2>
-        </div>
-        <a class="text-link" href="/feedbacks">Conhecer a seção</a>
+          <h2 class="section-title">Uma prévia de como cada relato ganhará espaço.</h2>
+        </FadeInText>
+        <FadeInText
+          as="a"
+          class="text-link"
+          href="/feedbacks"
+          enhance
+          duration={0.5}
+          delay={0.08}
+          yOffset={10}
+          blur="2px"
+        >
+          Conhecer a seção
+        </FadeInText>
       </div>
       <FeedbackSection />
     </div>
@@ -190,11 +229,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="gallery-preview page-section">
     <div class="site-shell">
       <div class="gallery-preview__heading">
-        <div>
+        <FadeInText enhance duration={0.6} yOffset={18} blur="4px">
           <p class="eyebrow">Imagens</p>
           <h2 class="section-title">Um espaço para registrar cuidado e presença.</h2>
-        </div>
-        <a class="text-link" href="/imagens">Ver galeria</a>
+        </FadeInText>
+        <FadeInText
+          as="a"
+          class="text-link"
+          href="/imagens"
+          enhance
+          duration={0.5}
+          delay={0.08}
+          yOffset={10}
+          blur="2px"
+        >
+          Ver galeria
+        </FadeInText>
       </div>
       <GalleryGrid limit={3} />
     </div>
@@ -202,11 +252,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="final-cta">
     <div class="site-shell final-cta__inner">
-      <div>
+      <FadeInText enhance duration={0.6} yOffset={18} blur="4px">
         <p class="eyebrow">Próximo passo</p>
         <h2>Precisa conversar sobre um atendimento?</h2>
-      </div>
-      <a class="button" href="/contato">Acessar contato <span aria-hidden="true">→</span></a>
+      </FadeInText>
+      <ScaleIn class="final-cta__action" enhance initialScale={0.94} duration={560} delay={80}>
+        <a class="button" href="/contato">Acessar contato <span aria-hidden="true">→</span></a>
+      </ScaleIn>
     </div>
   </section>
 </BaseLayout>
@@ -302,6 +354,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   border-radius: 16rem 16rem 2rem 2rem;
   background: var(--warm);
   box-shadow: var(--shadow);
+}
+
+.hero__portrait-motion {
+  width: 100%;
 }
 
 .hero__portrait::before {
@@ -597,6 +653,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.05;
+}
+
+.final-cta__action {
+  flex: 0 0 auto;
 }
 
 @media (max-width: 900px) {

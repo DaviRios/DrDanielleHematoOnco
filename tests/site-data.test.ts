@@ -11,7 +11,8 @@ describe('siteConfig', () => {
     expect(siteConfigSchema.safeParse(siteConfig).success).toBe(true);
   });
 
-  it('não publica feedbacks fictícios', () => {
-    expect(siteConfig.feedbacks).toHaveLength(0);
+  it('identifica todos os feedbacks demonstrativos como mocks', () => {
+    expect(siteConfig.feedbacks.length).toBeGreaterThanOrEqual(6);
+    expect(siteConfig.feedbacks.every((feedback) => feedback.isMock)).toBe(true);
   });
 });

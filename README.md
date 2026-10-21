@@ -75,6 +75,22 @@ O componente `src/components/PageLoader.astro` exibe um loader acessível durant
 navegações completas. Ele permanece visível por pelo menos 550 ms para evitar um flash imperceptível e respeita
 `prefers-reduced-motion`.
 
+## Animações
+
+O projeto usa `@astroanimate/core` com uma linguagem de movimento discreta e consistente:
+
+- `FadeInText` organiza a entrada de títulos, textos e ações conforme a rolagem;
+- `ScaleIn` revela fotografias, cartões, passos e painéis visuais;
+- `HighlightText` destaca somente a palavra “esperança” no conceito principal;
+- `InfiniteMarquee` apresenta os feedbacks demonstrativos em movimento contínuo, com pausa no hover e no foco;
+- a Home renderiza 31 animações do Astro Animate e as páginas internas reutilizam mais quatro animações no cabeçalho;
+- todas as animações preservam o conteúdo no HTML, funcionam com SSG e respeitam `prefers-reduced-motion`.
+
+O teste `tests/motion-count.test.ts` protege o requisito mínimo de 30 aplicações da biblioteca no projeto.
+
+Os feedbacks em `src/data/site.ts` possuem `isMock: true` e são identificados no layout como exemplos visuais. Antes da
+publicação definitiva, substitua-os por relatos autorizados e altere `isMock` para `false`.
+
 ## CI/CD e Vercel
 
 O workflow `.github/workflows/ci-cd.yml` executa testes e build em pull requests e pushes. Em um push na branch `main`, o job de deploy publica o artefato na Vercel depois que as validações passam.
